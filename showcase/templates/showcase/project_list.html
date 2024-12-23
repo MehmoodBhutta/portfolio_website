@@ -1,0 +1,39 @@
+<!-- filepath: /Users/mac/Desktop/Djnago/portfolio/showcase/templates/showcase/project_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'showcase/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <section class="project-list">
+            <ul class="list-group">
+                {% for project in projects %}
+                    <li class="list-group-item">
+                        <h2>{{ project.title }}</h2>
+                        <p>{{ project.description }}</p>
+                        {% if project.link %}
+                            <a href="{{ project.link }}" target="_blank" class="btn btn-primary">View Project</a>
+                        {% endif %}
+                        {% if project.image %}
+                            <img src="{{ project.image.url }}" alt="{{ project.title }}" class="img-fluid mt-2">
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <footer class="text-center mt-4">
+            <p>Check out my GitHub: <a href="https://github.com/MehmoodBhutta" target="_blank" class="btn btn-secondary">Visit My GitHub</a></p>
+        </footer>
+    </div>
+
+    <!-- Optional: Add Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zyGMbD5lgX8mBKLK/Bl5zJH0zjhbGxGJ5rxWeYkM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0G8f2Pffh4g5rAcWx3jup68n0q6KfT3RlZrhxPy1S3h4AbfZ" crossorigin="anonymous"></script>
+</body>
+</html>
